@@ -20,8 +20,6 @@ def Menu():
     print("------------")
 
 estudiantes = []
-nota_total = 0
-cantidad_estudiantes = 0
 while True:
     Menu()
     try:
@@ -57,14 +55,17 @@ while True:
                     else:
                         print("Carnet no registrado")
             case 4:
-                if not estudiantes:
-                    print("No se ha registrado ninguna estudiante")
-                print("Calcular Promedio")
-                for estudiante in estudiantes:
-                    nota_total =+ estudiante.nota_final
-                    cantidad_estudiante=+1
-                promedio = nota_total / cantidad_estudiante
-                print(f"El promedio total de los estudiante es {promedio}")
+                    if not estudiantes:
+                        print("No se ha registrado ninguna estudiante")
+                        continue
+                    print("Calcular Promedio")
+                    nota_total = 0
+                    cantidad_estudiante = 0
+                    for estudiante in estudiantes:
+                        nota_total += estudiante.nota_final
+                        cantidad_estudiante += 1
+                    promedio = nota_total / cantidad_estudiante
+                    print(f"El promedio total de los estudiantes es {promedio}")
 
             case 5:
                 print("Gracias por utilizar el programa")
